@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div p {
+      color: blue;
+    }
+    div > p {
+      color: crimson;
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+    <p>자식</p>
+      <ul>
+        <p>손자</p>
+      </ul>
+  </div>
+  <div>
+    <p>자식</p>
+  </div>
+</body>
+</html>
+
+<!-- div p는 div 아래 있는 모든 p에 대해서 색을 적용하는 것이다 -->
+<!-- div > p는 div 아래 바로 즉, 첫 번째 자손 중 <p>가 있을 때 적용하는 것이다 -->

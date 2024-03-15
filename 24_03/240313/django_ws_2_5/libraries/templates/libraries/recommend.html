@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h4 class = "rec">주목할 만한 신간 도서 목록</h4>
+{% for item in result %}
+  <h5 class="title">제목 : {{ item.title }}</h5>
+  <p class="ex_2">저자: {{ item.author }}</p>
+  <hr>
+{% endfor %}
+{% endblock content %}

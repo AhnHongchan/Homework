@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+@media (min-width: 992px) {
+  .article_1,
+  .article_2{
+    display: flex;
+  }
+
+  .Info{
+    width: 60%;
+  }
+  .personality{
+    width: 40%;
+  }
+
+  .skills{
+    width: 40%;
+  }
+  .project{
+    width: 60%;
+  }
+}
+
+body{
+  padding-top:88px;
+  padding-bottom: 50px;
+}
+.navbar{
+  width:100%;
+  font-size: 17px;
+  display: flex;
+  position: fixed;
+  top: 0;
+}
+
+.navbar-brand{
+  font-size: 40px;
+}
+img{
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 50px;
+  length: 50px;
+}
+ul{
+  margin-top:10px;
+}
+ 
+.exp_1{
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.Headline,
+.Info,
+.personality,
+.skills,
+.project,
+.contact{
+  font-size: 30px;
+  height: 150px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(33, 37, 41, 1);
+  color: white;
+  height: 100px;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.Headline,
+.contact{
+  background-color: #b7d5ac;
+}
+.personality,
+.skills{
+  background-color: #dbead5;
+}
+
+.contact{
+  margin-bottom: 50px;
+}
