@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>책 상세 정보</h1>
+  <p>등록 번호 : {{ book.pk }}</p>
+  <p>제목 : {{ book.title }}</p>
+  <p>설명 : {{ book.description }}</p>
+  <hr>
+  <h3>리뷰 등록</h3>
+  <form action="{% url 'libraries:create_review' book.pk %}" method="post">
+    {% csrf_token %}
+    {{review_form.as_p}}
+    <input type="submit" value="리뷰 작성">
+  </form>
+  <hr>
+  <h3>리뷰 전체 목록</h3>
+  <ul>
+  {% for review in reviews %}
+  <li>{{review.user.username}} - {{review.content}}</li>
+  {% if review.user == request.user %}
+  <form action="{% url 'libraries:delete_review' book.pk review.pk %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="리뷰 삭제">
+  </form>
+  {% endif %}
+  {% endfor %}
+</ul>
+<a href="{% url 'libraries:index' %}">[BACK]</a>
+{% endblock content %}
