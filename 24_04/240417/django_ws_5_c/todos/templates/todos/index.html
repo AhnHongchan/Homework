@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>할 일 목록 관리 프로젝트 메인 페이지</h1>
+  <p>이 곳에서 할 일 목록을 관리합니다.</p>
+  <ul>
+    {% for todo in todo_list %}
+      <li>
+        {% if todo.is_completed %}
+        <!-- 
+        checked / 가 써있으면 네모 칸에 체크 표시가 되고
+        /만 써있으면 네모 칸이 비어있다.
+        -->
+        <input type="checkbox" id="scales" name="scales" checked />
+        <label for="scales"></label>
+        {% else %}
+        <input type="checkbox" id="horns" name="horns" />
+        <label for="horns"></label>
+        {% endif %}
+        <a href="{% url "todos:detail" todo.pk %}">{{ todo.work }}</a>
+      </li>
+    {% empty %}
+      <li>아직 할 일이 없습니다.</li>
+    {% endfor %}
+  </ul>
+{% endblock content %}

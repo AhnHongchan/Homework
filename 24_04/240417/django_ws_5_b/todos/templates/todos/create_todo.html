@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>이 곳에서 할 일을 생성합니다.</h1>
+  <form action="{% url 'todos:new_todo' %}" method="POST">
+    {% comment %} 
+      POST method
+      특정 리소스에 변경(생성,수정,삭제)을 요구하는 요청(데이터는 전달할 때 HTTP Body에 담겨 보내짐)
+      POST 요청 이후 {% csrf_token %}을 작성하지 않을 시 403 Forbidden 응답이 확인된다.
+      요청은 전달됐으나, 권한 때문에 거절되었다.
+      csrf -> 사용자의 의지와 무관하게 공격자가 의도한 행동을 하여 보안에 취약하게 하는 행위
+      따라서 토큰을 보내서 django가 직접 제공한 페이지에서 요청을 보낸 것이지 확인 수단으로서 역할을 하게 한다.
+    {% endcomment %}
+    {% csrf_token %}
+    <div>
+      <label for="work">Work: </label>
+      <!-- input type = "text"의 경우 단일 행의 입력 필드로, 한 줄의 짧은 텍스트 입력을 받는다.-->
+      <input type="text" name = "work" id = "work">
+    </div>
+    <div>
+      <label for="content">Content: </label>
+      <!-- textarea의 경우 여러 줄에 걸쳐 긴 텍스트 입력을 받을 수 있는 입력 필드다.-->
+      <textarea type="content" name = "content" id = "content"></textarea>
+    </div>
+    <input type="submit" value="제출">
+  </form>
+{% endblock content %}

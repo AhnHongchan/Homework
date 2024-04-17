@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>이 곳에서 할 일을 생성합니다.</h1>
+    <form action="{% url 'todos:edit_todo' todo.pk %}" method = "POST">
+        {% csrf_token %}
+        {% comment %} label에서 for의 역할은
+        아래 id가 work인 입력 필드와 연결되어 있음을 나타낸다.
+        input에서 value는 입력 필드의 초기 값을 지정한다.
+        같은 역할로 textarea에서는 {{todos.content}}가 하고 있다.
+        {% endcomment %}
+        <div>
+            <label for="work">Work: </label>
+            <input type="text" name = "work" id = "work" value="{{ todo.work }}">
+        </div>
+        <div>
+            <label for="content">Content: </label>
+            <textarea name="content" id="content" cols="30" rows="10">{{ todo.content }}</textarea>
+        </div>
+        <input type="submit" value = "제출">
+    </form>
+    <a href="{% url 'todos:index' %}">[back]</a>
+
+
+{% endblock content %}
