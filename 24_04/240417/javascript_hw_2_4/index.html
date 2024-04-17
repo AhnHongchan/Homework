@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // const를 let으로 바꾸어 재할당이 가능하게 변경한다.
+    let num = 5
+    // num이 0이 될 때까지 countdown을 하는 거기 때문에 
+    // num이 true가 되는 동등 연산자로 변경한다 - 실패
+    // why? 아마도 num == true라고 쓰면 안의 f-string에서 num = true로 인식하는 것이 아닌 가 싶음
+    // 그래서 num != 0 으로 변경했더니 정상적으로 출력됨
+    // cf) 여기는 True 아니고 true다 앞에 소문자인 거 유의
+    // console을 consol로 써놓았다.
+    while (num != 0) {
+      console.log(`카운트 다운 : ${num}`)
+      num -= 1
+    }
+
+    // for in 객체의 열거 가능한 속성(property)에 대해 반복
+    // 객체는 속성과 그에 상응하는 값으로 이루어진다(key-value 관계 / dict)
+    // for of 반복 가능한 객체(배열, 문자열 등)에 대해 반복
+    // list 같은 거
+    const students = ['가', '나', '다', '라']
+    for (const student of students) {
+      console.log(student)
+    }
+    
+    // students가 list이고 length가 4이므로 시작 i가 3이어야 한다.
+    // 이후 3, 2, 1, 0번째 원소여야 한다
+    for (let i = 3; i >= 0; i--) {
+      console.log(students[i])
+    }
+  </script>
+</body>
+
+</html>

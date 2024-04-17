@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 변수를 재할당하기 위해 const를 let으로 바꾼다
+    let name = '홍길동'
+    const age = 30
+    name = '김철수'
+    // name 변수에 값이 재할당된 것을 확인한다
+    console.log(name)
+    // 파이썬의 if 문을 Javascript 형태로 바꾸기
+    // if 뒤의 조건을 소괄호로 씌우고, and는 &&인 논리 연산자로 바꾼다.
+    // 뒤의 내용은 중괄호로 씌워서 표현한다
+    // f-string의 경우 ``backtick을 사용해 표현하며, 변수는 &{}로 쓴다.
+    if (name == '김철수' && age == 30) {
+      console.log(`${name}의 나이는 ${age}살 입니다.`)
+    }
+		let new_age = age 
+    new_age += 1
+    // 마찬가지로 f-string을 변경시켜준다.
+    console.log(`1년이 지나 이제 ${name}는/은 ${new_age}살이 되었습니다.`)
+  </script>
+</body>
+</html>

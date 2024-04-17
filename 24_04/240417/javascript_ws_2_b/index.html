@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const studentNames = ['John', 'Alice', 'Bob']
+    const studentAges = {
+      John: 50,
+      Alice: 100,
+      Bob: 25
+    }
+    // 아래에 코드 작성
+    // studentName을 순회하여 요소들을 출력하시오
+    for (const studentName of studentNames) {
+      console.log(studentName)
+    }
+    // studentAges를 순회하여 각 속성의 값들을 출력하시오
+    // 딕셔너리 안의 key를 student로 정의하고
+    // value를 age로 정의하여 studentAges[student]로 딕셔너리 안에서 특정 key에 해당하는
+    // value에 찾아갈 수 있도록 한다.
+    for (const student in studentAges) {
+      const age = studentAges[student]
+      console.log(age)
+    }
+  </script>
+</body>
+
+</html>
