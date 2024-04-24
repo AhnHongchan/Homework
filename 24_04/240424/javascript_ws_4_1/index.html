@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+      Input: <input id="userInput" type="text" autofocus>
+    </div>
+    <div>
+      Output: <span id="output"></span>
+    </div>
+
+    <script>
+      /* 
+        현재 코드에서는 input#userInput에 입력한 내용이 그대로 span#output에 출력된다.
+        아래 이미지를 참고하여 badWords에 포함된 단어가 사용자 입력에 포함되어 있을 경우,
+        span#output에서 해당 단어를 **로 바꿔 출력하도록 filterMessage 함수를 완성하시오.
+      */
+      const badWords = ['바보', '멍청', '메롱', ]
+      const userInput = document.querySelector('#userInput')    
+      const output = document.querySelector('#output')
+
+      function filterMessage(event) {
+        const inputText = event.target.value
+
+        // badWords에 포함된 단어가 입력될 경우, '**'으로 변환하여 output에 출력
+        // forEach - 배열의 각 요소에 대해 function 실행
+        let filteredInput = inputText
+        badWords.forEach(function(badWord) {
+          filteredInput = filteredInput.replace(new RegExp(badWord, 'g'), '**')
+        })
+        // new RegExp(badWord, 'g') : badWord를 포함하는 정규 표현식 객체를 생성한다.
+        // - 'g' 플래그는 전역 검색을 수행하도록 한다.
+        // replace(new RegExp(badWord, 'g') , '**') badWord에 해당하는 부분을 **로 교체한다.
+        // .innerText : 요소의 내부 텍스트를 설정하거나 반환하는 속성이다.
+        output.innerText = filteredInput
+        
+      }
+
+      userInput.addEventListener('input', filterMessage)   
+    </script>
+</body>

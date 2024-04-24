@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .font-crimson {
+      color: crimson;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="heading">Hover me!</h1>
+  <h2 class="sub-heading">Double Click me!</h2>
+  <p class="contents">Lorem ipsum dolor sit amet consectetur</p>
+
+  <script>
+    const randomTexts = [
+      'Lorem ipsum dolor sit amet consectetu',
+      'adipisicing elit. Repellendus delectus quam',
+      'similique quo ipsam maxime totam alias',
+      'quibusdam repudiandae voluptas dicta',
+      'voluptas voluptatibus exercitationem officiis'
+    ]
+
+    // 아래에 코드 작성
+    document.addEventListener('DOMContentLoaded', function() {
+      const h1 = document.querySelector('.heading');
+      const h2 = document.querySelector('.sub-heading')
+      const p = document.querySelector('.contents')
+
+      // mouseeenter -> 마우스를 가져다 대면
+      h1.addEventListener('mouseenter', function(event) {
+        h1.textContent = "I'm being hovered!";
+      });
+
+      // mouseleave -> 마우스를 떼면
+      h1.addEventListener('mouseleave', function(event) {
+        h1.textContent = "Hover me!";
+      });
+
+
+      // dblclik -> 더블클릭
+      h2.addEventListener('dblclick', function(event) {
+        h2.classList.toggle('font-crimson')
+      })
+
+      // wheel -> 마우스 휠 스크롤
+      // Math 객체 활용
+      // Math.random() : 이 메서드는 0 이상 1 미만의 난수를 생성합니다. 
+      // 즉, 0 이상 1 미만의 실수값을 반환합니다. 
+      // 예를 들어, 0.123456789와 같은 형태의 값이 될 수 있습니다.
+      // Math.floor(x) : x를 내림하여 가장 가까운 정수를 반환한다.
+      // Math.floor(Math.random() * randomTexts.length) 이건 0에서 randomTexts.length - 1 사이의 숫자를 뽑기 위해 사용
+      p.addEventListener('wheel', function(event) {
+        const randomIndex = Math.floor(Math.random() * randomTexts.length);
+        const randomString = randomTexts[randomIndex];
+
+        // 선택된 랜덤 문자열을 <p> 요소의 텍스트로 설정합니다.
+        p.textContent = randomString;
+      })
+    });
+
+
+  </script>
+</body>
+
+</html>

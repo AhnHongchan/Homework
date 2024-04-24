@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      width: 100%;
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    td {
+      width: 50px;
+      height: 50px;
+      border: 1px solid black;
+      text-align: center;
+    }
+
+    .theme-color {
+      background-color: crimson;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <td>Lorem, ipsum dolor.</td>
+      <td>Lorem, ipsum dolor.</td>
+      <td>Lorem, ipsum dolor.</td>
+    </tr>
+    <tr>
+      <td>Lorem, ipsum dolor.</td>
+      <td>Lorem, ipsum dolor.</td>
+      <td>Lorem, ipsum dolor.</td>
+    </tr>
+    <tr>
+      <td>Lorem, ipsum dolor.</td>
+      <td>Lorem, ipsum dolor.</td>
+      <td>Lorem, ipsum dolor.</td>
+    </tr>
+  </table>
+
+  <script>
+    const table = document.querySelector('table')
+    table.addEventListener('click', function(event) {
+      const target = event.target 
+      // event가 발생한  DOM 요소를 나타내는 속성이다.
+      // 이벤트가 발생하면 해당 이벤트가 발생한 요소가 event.target에 할당된다.
+
+      // 클릭한 요소가 td 요소인 경우에만 처리
+      // .tagname 메서드를 활용해 태그네임을 찾을 수 있다.
+      // 관례적으로 HTML 태그는 대문자로 쓴다.
+      if (target.tagName === 'TD') {
+        // theme-color 클래스가 이미 존재하는지 확인
+        // classList.contains 메서드 알고 가기 (포함되어있는 지 확인 가능)
+        const hasThemeColor = target.classList.contains('theme-color');
+        
+        // theme-color 클래스를 토글링
+        if (hasThemeColor) {
+          target.classList.remove('theme-color');
+        } else {
+          target.classList.add('theme-color');
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
