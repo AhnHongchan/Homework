@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .completed {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <form id = "todo-form">
+    <input type="text" id = "todo-input">
+    <button type = submit>Todo</button>
+  </form>
+  <ul id = "todo-list"></ul>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('#todo-form')
+    const input = document.querySelector('#todo-input')
+    const list = document.querySelector('#todo-list')
+    function addTodo (event) {
+      // 이벤트를 취소한다.
+      event.preventDefault()
+
+      // 입력 element를 찾고 해당 입력 element의 value 값을 저장한다.
+      const todoText = input.value.trim() // 문자열 양 끝의 공백을 제거하는 역할 .trim()
+      
+      // li element를 생성 후 input element의 value 값을 데이터로 저장한다
+      if (todoText !== '') {
+        const todoItem = document.createElement('li')
+        const todoTextSpan = document.createElement('span'); // span 요소 생성
+        todoTextSpan.textContent = todoText; // 텍스트 설정
+
+        const deleteButton = document.createElement('button')
+        deleteButton.textContent = 'X' // 버튼 텍스트 설정
+
+        deleteButton.addEventListener('click', function () {
+          todoTextSpan.classList.toggle('completed'); // 클릭 시 취소선 토글
+        })
+
+        todoItem.appendChild(todoTextSpan); // 텍스트 span 요소를 li 요소에 추가
+        todoItem.appendChild(deleteButton) // li 아래 버튼
+        list.appendChild(todoItem) // ul 아래 li
+
+        input.value = '' // 입력 필드 초기화
+      }
+    }
+    form.addEventListener('submit', addTodo)
+  })
+  
+</script>
+</body>
+</html>
